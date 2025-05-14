@@ -1,0 +1,69 @@
+/* Mobile responsive styles for experience cards */
+@media screen and (max-width: 768px) {
+    .experience-card {
+        flex-direction: row;
+        padding: 1rem;
+    }
+
+    .experience-info {
+        max-width: 80%;
+    }
+
+    .company-logo-container {
+        width: 65px;
+        height: 65px;
+        flex: 0 0 65px;
+        margin-right: 1rem;
+        padding: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+    }
+
+    .experience-company {
+        font-size: 1.2rem;
+    }
+
+    .experience-position {
+        font-size: 1rem;
+    }
+    
+    .timeline-right .experience-timeline::after {
+        display: none !important;
+    }
+    
+    .experience-card::before {
+        right: -25px;
+    }
+
+    /* Align experience cards with education cards */
+    .experience-card {
+        margin-top: 0 !important;
+        margin-bottom: 2.5rem;
+    }
+    
+    /* Fix vertical positioning to match education cards */
+    .experience-timeline {
+        padding-top: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .experience-info {
+        max-width: 70%;
+    }
+    
+    .company-logo-container {
+        width: 60px;
+        height: 60px;
+        flex: 0 0 60px;
+        padding: 4px;
+        border: 1px solid #e0e0e0;
+        background-color: #ffffff;
+    }
+    
+    .company-logo {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}

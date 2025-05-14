@@ -1,0 +1,35 @@
+.education-timeline {
+    position: relative;
+}
+
+.education-card::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+}
+
+.education-card::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: var(--primary-color);
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 992px) {
+    .education-card::before,
+    .education-card::after {
+        display: none;
+    }
+}

@@ -1,0 +1,195 @@
+/* New Experience Layout with Logos on Left Side */
+.experience-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin-bottom: 2.5rem;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: var(--radius-sm);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 150px; /* Match height with education cards */
+    max-height: none; /* Remove any max-height restriction */
+}
+
+.experience-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* Logo container styles - square on left side with distinct white background */
+.company-logo-container {
+    flex: 0 0 85px;  /* Slightly larger */
+    height: 85px;    /* Slightly larger */
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.2rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);  /* Enhanced shadow for more depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;  /* Pure white background */
+    order: 1; /* Logo comes first */
+    border: 1px solid #e0e0e0; /* Slightly darker border for better definition */
+    padding: 6px; /* More padding for whitespace around logo */
+}
+
+.company-logo-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);  /* Even stronger shadow on hover */
+    border-color: #d0d0d0;  /* Slightly darker border on hover */
+}
+
+.company-logo {
+    width: 95%;    /* Increased size to fill more of the container */
+    height: 95%;   /* Increased size to fill more of the container */
+    object-fit: contain;
+    opacity: 1;
+    image-rendering: -webkit-optimize-contrast;  /* Make images sharper on Chrome/Safari */
+    image-rendering: crisp-edges;  /* Make images sharper on Firefox */
+    -ms-interpolation-mode: nearest-neighbor;  /* Make images sharper on IE */
+}
+
+/* Experience info styles - no box, just text */
+.experience-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Left aligned text */
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    transition: none;
+    order: 2; /* Text comes second */
+}
+
+.experience-header {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.experience-company-link {
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    text-align: left;
+}
+
+.experience-company-link:hover {
+    color: var(--primary-color);
+}
+
+.experience-company {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 0.3rem; /* Reduced spacing */
+    font-size: 1.4rem;
+    line-height: 1.3;
+    text-align: left;
+}
+
+.experience-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0.15rem; /* Reduced spacing between elements */
+}
+
+.experience-position {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem; /* Reduced spacing for consistency */
+    color: var(--text-color);
+    text-align: left;
+}
+
+.experience-date {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.experience-location {
+    color: var(--text-color-light);
+    font-size: 0.95rem;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.experience-description {
+    color: var(--text-color-light);
+    font-size: 0.95rem;
+    text-align: left;
+    line-height: 1.4;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 0.4rem;
+    margin-top: 0.3rem;
+    width: 100%;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .experience-card {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+    
+    .company-logo-container {
+        margin-right: 1rem;
+        flex: 0 0 65px;
+        height: 65px;
+        padding: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e0e0e0;
+    }
+    
+    .experience-info {
+        width: 100%;
+        padding: 0.5rem;
+        max-width: 75%;  /* Ensure there's enough space for the logo */
+    }
+
+    .experience-company {
+        font-size: 1.1rem;
+    }
+
+    .experience-position {
+        font-size: 1rem;
+    }
+    
+    .experience-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .experience-info {
+        max-width: 70%;
+    }
+    
+    .company-logo-container {
+        width: 60px;
+        height: 60px;
+        flex: 0 0 60px;
+        padding: 4px;
+        border: 1px solid #e0e0e0;
+        background-color: #ffffff;
+    }
+    
+    .company-logo {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}

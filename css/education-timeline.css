@@ -1,0 +1,44 @@
+/* Timeline styling for education section */
+
+/* Timeline styling without vertical line */
+.timeline-left .education-timeline {
+    position: relative;
+    /* Removed padding-left since we don't need space for the line */
+}
+
+/* Removed the ::after pseudo-element that was creating the vertical line */
+
+/* No dots on timeline as per requirements */
+.education-card {
+    position: relative;
+}
+
+/* Removing dots
+.education-card::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    left: -37px;
+    top: 30px;
+    z-index: 1;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+}
+*/
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .timeline-left .education-timeline {
+        padding-left: 0; /* No padding needed since there's no line */
+    }
+    
+    /* No dots on mobile either
+    .education-card::before {
+        left: -27px;
+        width: 12px;
+        height: 12px;
+    }
+    */
+}

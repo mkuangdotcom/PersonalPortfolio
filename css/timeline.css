@@ -1,0 +1,325 @@
+/* Timeline Styles */
+
+.experience-card {
+    background-color: var(--bg-color);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    max-width: 90%;
+    margin-bottom: 3rem;
+    text-align: left;
+    height: 320px; /* Fixed height for consistent size */
+}
+
+.experience-card::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    top: 50%;
+    right: -28px; /* Changed from left to right */
+    transform: translateY(-50%);
+    z-index: 1;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+}
+
+.experience-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+/* Timeline Styling */
+.timeline-container {
+    position: relative;
+    padding: 4rem 0;
+    overflow: hidden;
+}
+
+.timeline-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    position: relative;
+}
+
+/* Center line */
+.timeline-sections::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: linear-gradient(to bottom, transparent 0%, var(--primary-color) 10%, var(--primary-color) 90%, transparent 100%);
+    transform: translateX(-50%);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/* Left and right timeline columns */
+.timeline-left, .timeline-right {
+    position: relative;
+}
+
+.timeline-left {
+    padding-right: 3rem;
+    padding-left: 1rem;
+}
+
+.timeline-right {
+    padding-left: 3rem;
+    padding-right: 1rem;
+}
+
+/* Timeline item styling */
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background-color: var(--bg-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Timeline dots */
+.timeline-left .timeline-item::after, 
+.timeline-right .timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+    z-index: 2;
+}
+
+.timeline-left .timeline-item::after {
+    right: -24px;
+    top: 30px;
+}
+
+.timeline-right .timeline-item::after {
+    left: -24px;
+    top: 30px;
+}
+
+/* Timeline connector lines */
+.timeline-left .timeline-item::before,
+.timeline-right .timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: var(--primary-color);
+    z-index: 1;
+    top: 38px;
+}
+
+.timeline-left .timeline-item::before {
+    right: -20px;
+}
+
+.timeline-right .timeline-item::before {
+    left: -20px;
+}
+
+/* Date styling */
+.timeline-date {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Timeline heading */
+.timeline-heading {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Timeline subheading */
+.timeline-subheading {
+    font-size: 1rem;
+    color: var(--text-color-light);
+    margin-bottom: 0.5rem;
+}
+
+/* Timeline content */
+.timeline-content {
+    color: var(--text-color-light);
+    line-height: 1.6;
+}
+
+/* Timeline animation classes */
+.timeline-item.animate-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+.timeline-left .timeline-item.animate-item {
+    animation-name: fadeInRight;
+}
+
+.timeline-right .timeline-item.animate-item {
+    animation-name: fadeInLeft;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Make sure the connectors align with the divider */
+.education-card::before,
+.education-card::after,
+.experience-card::before,
+.experience-card::after {
+    z-index: 2;
+}
+
+/* Ensure timeline items don't overflow */
+.education-timeline, 
+.experience-timeline {
+    position: relative;
+    max-width: 100%;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 992px) {
+    .timeline-sections {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .timeline-sections::before {
+        left: 30px;
+    }
+    
+    .timeline-left, .timeline-right {
+        padding-left: 60px;
+        padding-right: 1rem;
+    }
+    
+    .timeline-left .timeline-item::after,
+    .timeline-right .timeline-item::after {
+        left: -40px;
+        right: auto;
+    }
+    
+    .timeline-left .timeline-item::before,
+    .timeline-right .timeline-item::before {
+        left: -20px;
+        right: auto;
+    }
+    
+    /* Adjust animation for single column layout */
+    .timeline-left .timeline-item.animate-item,
+    .timeline-right .timeline-item.animate-item {
+        animation-name: fadeInUp;
+    }
+    
+    .timeline-center-divider {
+        display: none;
+    }
+    
+    .timeline-left, .timeline-right {
+        padding: 1.5rem;
+    }
+    
+    .timeline-right {
+        padding-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .timeline-sections {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-sections::before {
+        left: 20px;
+    }
+    
+    .timeline-left, .timeline-right {
+        padding-left: 50px;
+        padding-right: 0;
+    }
+    
+    .timeline-left .timeline-item::after,
+    .timeline-right .timeline-item::after {
+        left: -30px;
+    }
+    
+    /* Ensure all timeline decorative elements are hidden on mobile */
+    .timeline-sections::before,
+    .timeline-left::before,
+    .timeline-right::before,
+    .timeline-center-divider {
+        display: none !important;
+    }
+    
+    .education-card::after,
+    .experience-card::before {
+        display: none;
+    }
+    
+    .education-card,
+    .experience-card {
+        max-width: 100%;
+        min-height: auto;
+        height: auto;
+    }
+    
+    .timeline-right {
+        margin-top: 2rem;
+    }
+    
+    /* Remove fixed positioning on mobile */
+    .experience-timeline .experience-card:first-child,
+    .experience-timeline .experience-card:nth-child(2) {
+        margin-top: 0 !important;
+    }
+}

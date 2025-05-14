@@ -1,0 +1,185 @@
+/* Experience Links Styles */
+
+.experience-links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.experience-link {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.experience-link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.experience-link i {
+    margin-right: 0.5rem;
+}
+
+.experience-social {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.experience-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    box-shadow: var(--shadow-sm);
+}
+
+.experience-social a:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Experience Links Styling */
+.experience-company-link {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    display: block;
+    text-align: left;
+    position: relative;
+}
+
+.experience-company-link:hover {
+    color: var(--primary-color);
+}
+
+.experience-company-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.experience-company-link:hover::after {
+    width: 100%;
+}
+
+/* Fix for link spacing */
+.experience-header {
+    margin-bottom: 0.75rem;
+}
+
+.experience-header a {
+    display: inline-block;
+}
+
+/* Ensure links don't overflow */
+.experience-details {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Fix for vertical alignment */
+.company-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Make sure text doesn't overflow */
+.experience-company, .experience-position, .experience-date, .experience-location, .experience-description {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .experience-links {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .experience-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Educational Institution & Company Link Animations */
+
+/* Styling for education links */
+.education-school-link {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.education-school-link:hover {
+    color: var(--primary-color);
+}
+
+/* Underline animation effect for school links */
+.education-school-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    right: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.education-school-link:hover::after {
+    width: 100%;
+    left: 0;
+    right: auto;
+}
+
+/* Additional styling for experience company links - consistent with education links */
+.experience-company a {
+    position: relative;
+}
+
+.experience-company a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.experience-company a:hover::after {
+    width: 100%;
+}

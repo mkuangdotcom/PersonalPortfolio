@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Improved meta description -->
+    <meta name="description" content="Ming Kuang's portfolio showcasing software engineering projects in machine learning, web development, and mobile applications.">
+    <!-- Added additional meta tags for SEO and social sharing -->
+    <meta name="keywords" content="Ming Kuang, Software Engineer, Portfolio, Machine Learning, Web Development, Flutter">
+    <meta name="author" content="Ming Kuang">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mingkuang.com/">
+    <meta property="og:title" content="Ming Kuang | Software Engineer Portfolio">
+    <meta property="og:description" content="Ming Kuang's portfolio showcasing software engineering projects in machine learning, web development, and mobile applications.">
+    <meta property="og:image" content="assets/images/profile.webp">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mingkuang.com/">
+    <meta property="twitter:title" content="Ming Kuang | Software Engineer Portfolio">
+    <meta property="twitter:description" content="Ming Kuang's portfolio showcasing software engineering projects in machine learning, web development, and mobile applications.">
+    <meta property="twitter:image" content="assets/images/profile.webp">
+    
+    <!-- DNS Prefetch for faster resource discovery -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    
+    <!-- Preload critical fonts to reduce layout shifts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="font" crossorigin>
+    
+    <!-- Critical CSS for faster initial render -->
+    <style>
+      /* Critical CSS only - minimal styles needed for above-the-fold content */
+      :root {
+        --primary-color: #2563eb;
+        --primary-color-dark: #1e40af;
+        --secondary-color: #10b981;
+        --accent-color: #8b5cf6;
+        --text-color: #1f2937;
+        --text-color-light: #4b5563;
+        --bg-color: #ffffff;
+        --bg-color-alt: #f9fafb;
+        --border-color: #e5e7eb;
+        --font-sans: 'Poppins', sans-serif;
+      }
+      body {
+        font-family: var(--font-sans);
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 0;
+        line-height: 1.7;
+      }
+      header {
+        padding: 1.5rem 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: transparent;
+        transition: all 0.3s ease;
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        
+        align-items: center;
+      }
+      .logo a {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+      .logo span {
+        color: var(--accent-color);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        position: relative;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        color: inherit;
+        text-decoration: none;
+      }
+    </style>
+    <!-- Fix title tag -->
+    <title>Ming Kuang | Software Engineer Portfolio</title>
+    <!-- Preload critical assets -->
+    <link rel="preload" href="assets/images/profile.webp" as="image">
+    <!-- Load non-critical CSS asynchronously -->
+    <link rel="preload" href="css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/main.css"></noscript>
+    <link rel="preload" href="css/home.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/home.css"></noscript>
+    <link rel="preload" href="css/skills-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/skills-icons.css"></noscript>
+    <!-- Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- Google Fonts - Optimized -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <!-- Fallback for non-JS browsers -->
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:;">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">MK<span>.</span></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                </ul>
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container grid">
+                <div class="hero-content">
+                    <!-- Fix heading hierarchy - this is correct as h1 -->
+                    <h1 class="animate-reveal">Hi, I'm <span>Ming Kuang</span></h1>
+                    <h2 class="animate-reveal delay-1">Software Engineer</h2>
+                    <p class="animate-reveal delay-2">I build efficient, innovative, and user-friendly applications with a focus on Machine Learning and Web Development.</p>
+                    <div class="buttons animate-reveal delay-3">
+                        <a href="projects.html" class="btn primary-btn">View My Work</a>
+                        <a href="about.html" class="btn secondary-btn">About Me</a>
+                    </div>
+                    <div class="social-icons animate-reveal delay-4">
+                        <a href="https://github.com/mkuangdotcom" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ming-kuang-foo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="mailto:mk.foo123@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image animate-reveal delay-2">
+                    <div class="image-container">
+                        <!-- Added fetchpriority for LCP image -->
+                        <img
+                            src="assets/images/profile.webp"
+                            alt="Ming Kuang's profile picture" 
+                            class="profile-image"
+                            width="400" 
+                            height="400"
+                            fetchpriority="high">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills">
+            <div class="container">
+                <!-- This h2 is correctly placed in hierarchy -->
+                <h2 class="section-title">My <span>Skills</span></h2>
+                <div class="skills-container">
+                    <div class="skill-tag">C++</div>
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">Flutter</div>
+                    <div class="skill-tag">Java</div>
+                    <div class="skill-tag">Pandas</div>
+                    <div class="skill-tag">React</div>
+                    <div class="skill-tag">React Native</div>
+                    <div class="skill-tag">TailwindCSS</div>
+                    <div class="skill-tag">Jupyter Notebook</div>
+                    <div class="skill-tag">HTML5</div>
+                    <div class="skill-tag">CSS</div>
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">R</div>
+                    <div class="skill-tag">MySQL</div>
+                    <div class="skill-tag">NoSQL</div>
+                    <div class="skill-tag">Firebase</div>
+                    <div class="skill-tag">AWS</div>
+                    <div class="skill-tag">Keras</div>
+                    <div class="skill-tag">TensorFlow</div>
+                    <div class="skill-tag">scikit-learn</div>
+                    <div class="skill-tag">OpenCV</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-projects">
+            <div class="container">
+                <!-- Fix heading hierarchy - use h2 for section title -->
+                <h2 class="section-title">Featured <span>Projects</span></h2>
+                <!-- Change this from h2 to h3 to maintain hierarchy -->
+                <div class="category-header">
+                    <h3>Featured Projects</h3>
+                </div>
+                <div class="category-projects">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Replace with picture element for better WebP support -->
+                            <picture>
+                                <source srcset="assets/images/attendease.webp" type="image/webp">
+                                <source srcset="assets/images/attendease.jpg" type="image/jpeg"> 
+                                <img 
+                                    src="assets/images/attendease.jpg" 
+                                    alt="AttendEase Project"
+                                    width="600" 
+                                    height="400"
+                                    loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="project-content">
+                            <!-- Change from h3 to h4 to maintain hierarchy -->
+                            <h4>AttendEase</h4>
+                            <p>A facial recognition attendance system that automatically identifies individuals based on their facial features.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>OpenCV</span>
+                                <span>Dlib</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/mkuangdotcom/AttendEase" target="_blank" rel="noopener noreferrer" class="github-btn">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all">
+                    <a href="projects.html" class="btn primary-btn">View All Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="container">
+                <!-- This h2 is correctly placed in hierarchy -->
+                <h2 class="section-title">Get In <span>Touch</span></h2>
+                <div class="contact-content grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <a href="mailto:mk.foo123@gmail.com" aria-label="Send email" class="contact-icon">
+                                <i class="fas fa-envelope fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://github.com/mkuangdotcom" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="contact-icon">
+                                <i class="fab fa-github fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.linkedin.com/in/ming-kuang-foo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="contact-icon">
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn primary-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">MK<span>.</span></a>
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/mkuangdotcom" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ming-kuang-foo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                    <a href="mailto:mk.foo123@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ming Kuang. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/home.js" defer></script>
+    <script src="js/bfcache-fix.js" defer></script>
+</body>
+</html>

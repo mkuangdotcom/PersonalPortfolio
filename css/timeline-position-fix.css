@@ -1,0 +1,34 @@
+/* Custom CSS to fix the positioning of experience cards */
+
+/* Position the first experience card (Undisclosed Hedge Fund) between UTS and UTM levels */
+.experience-timeline .experience-card:first-child {
+    margin-top: 40px; /* Adjust this value to align with UTS and UTM */
+}
+
+/* Position the second experience card (Money Match) below the first one */
+.experience-timeline .experience-card:nth-child(2) {
+    margin-top: 40px; /* Adjust spacing between the cards */
+}
+
+/* Additional styles for better visual alignment */
+.timeline-right {
+    padding-top: 60px; /* Create some vertical offset for the right column */
+}
+
+/* Make sure delay animations don't interfere with positioning */
+@media (min-width: 768px) {
+    .animate-reveal.delay-1 {
+        animation-delay: 0.2s !important; /* Ensure consistent animation delay */
+    }
+}
+
+/* Adjust the responsive spacing to maintain alignment on smaller screens */
+@media (max-width: 767px) {
+    .experience-timeline .experience-card:first-child {
+        margin-top: 0; /* Reset on mobile */
+    }
+    
+    .timeline-right {
+        padding-top: 0; /* Reset on mobile */
+    }
+}

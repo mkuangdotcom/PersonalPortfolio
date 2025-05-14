@@ -1,0 +1,80 @@
+/* Timeline container styles */
+.timeline-container {
+    position: relative;
+    padding: 4rem 0;
+}
+
+.timeline-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    position: relative;
+}
+
+/* Remove the pseudo-element completely and add a new div for the timeline */
+.timeline-sections {
+    position: relative;
+}
+
+/* Create a new style for a center divider */
+.timeline-center-divider {
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, #2563eb 10%, #2563eb 90%, transparent 100%);
+    opacity: 0.5;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Higher z-index to ensure visibility */
+    pointer-events: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Important override to ensure the divider is not affected by other styles */
+.timeline-center-divider::before,
+.timeline-center-divider::after {
+    display: none !important;
+    content: none !important;
+}
+
+.timeline-left, .timeline-right {
+    position: relative;
+}
+
+/* Additional reset to ensure no other styles affect the timeline elements */
+.timeline-sections *::before,
+.timeline-sections *::after {
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+.timeline-left {
+    padding-right: 3rem;
+}
+
+.timeline-right {
+    padding-left: 3rem;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+    .timeline-sections {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    /* Hide the center divider on mobile */
+    .timeline-center-divider {
+        display: none;
+    }
+    
+    .timeline-left, .timeline-right {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

@@ -1,0 +1,194 @@
+/* Education Redesign CSS */
+.education-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: transparent;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.education-card:hover .education-info {
+    transform: translateY(-5px);
+}
+
+/* Logo container styles */
+.school-logo-container {
+    flex: 0 0 70px;
+    height: 70px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.school-logo-container:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.school-logo {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+}
+
+/* Education info styles */
+.education-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: var(--bg-color);
+    padding: 1.2rem 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    position: relative;
+    width: calc(100% - 100px);
+}
+
+.education-info:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.education-header {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    text-align: right;
+}
+
+.education-school-link {
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    text-align: right;
+}
+
+.education-school-link:hover {
+    color: var(--primary-color);
+}
+
+.education-school {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    text-align: right;
+}
+
+.education-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.education-degree {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    text-align: right;
+}
+
+.education-date {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    text-align: right;
+}
+
+.education-note {
+    color: var(--text-color-light);
+    font-size: 0.95rem;
+    font-style: italic;
+    text-align: right;
+}
+
+/* Timeline line */
+.timeline-container {
+    position: relative;
+    padding: 4rem 0;
+}
+
+.timeline-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    position: relative;
+}
+
+/* Remove the timeline center line */
+.timeline-sections:before {
+    display: none !important;
+    content: none !important;
+}
+
+.timeline-left, .timeline-right {
+    position: relative;
+}
+
+.timeline-left {
+    padding-right: 3rem;
+}
+
+.timeline-right {
+    padding-left: 3rem;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+    .timeline-sections {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .timeline-sections:before {
+        display: none !important;
+    }
+    
+    .timeline-left, .timeline-right {
+        padding-left: 4rem;
+        padding-right: 1rem;
+    }
+    
+    .education-card {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .education-card {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .school-logo-container {
+        margin-right: 1rem;
+        flex: 0 0 60px;
+        height: 60px;
+    }
+    
+    .education-info {
+        width: 100%;
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .education-school {
+        font-size: 1.1rem;
+    }
+
+    .education-degree {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,36 @@
+/* Experience timeline connector styles */
+.experience-timeline {
+    position: relative;
+}
+
+.experience-card::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+}
+
+.experience-card::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: var(--primary-color);
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 992px) {
+    .experience-card::before,
+    .experience-card::after {
+        display: none;
+    }
+}

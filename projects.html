@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ming Kuang's Portfolio Projects">
+    <title>Projects | Ming Kuang</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Optimized -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <!-- Fallback for non-JS browsers -->
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    </noscript>
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:;">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">MK<span>.</span></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                </ul>
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="projects-hero">
+            <div class="container">
+                <h1 class="page-title animate-reveal">My <span>Projects</span></h1>
+                <p class="page-subtitle animate-reveal delay-1">Here's a showcase of my recent work and ongoing projects.</p>
+            </div>
+        </section>
+
+        <section class="projects-grid">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
+                    <button class="filter-btn" data-filter="full-stack">Full Stack</button>
+                </div>
+                
+                <div class="projects-container">
+                    <!-- Machine Learning Projects Section -->
+                    <div class="category-section" id="machine-learning-projects">
+                        <div class="category-header">
+                            <h2>Machine Learning</h2>
+                        </div>
+                        <div class="category-projects">
+                            <!-- Project 1: AttendEase -->
+                            <div class="project-item animate-reveal" data-category="machine-learning">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img 
+                                            src="assets/images/attendease.webp" 
+                                            alt="AttendEase Project"
+                                            width="600" 
+                                            height="400" 
+                                            loading="lazy"
+                                            onError="this.onerror=null; this.src='assets/images/attendease.jpg';">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>AttendEase</h3>
+                                        <p>Facial recognition attendance system that identifies individuals automatically using computer vision algorithms.</p>
+                                        <div class="project-tech">
+                                            <span>Python</span>
+                                            <span>OpenCV</span>
+                                            <span>Dlib</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/mkuangdotcom/AttendEase" target="_blank" rel="noopener noreferrer" class="github-btn">
+                                                <i class="fab fa-github"></i> GitHub
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 3: Fraud Detection -->
+                            <div class="project-item animate-reveal" data-category="machine-learning">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img 
+                                            src="assets/images/fraud-detection.webp" 
+                                            alt="Fraud Detection Project"
+                                            width="600" 
+                                            height="400" 
+                                            loading="lazy"
+                                            onError="this.onerror=null; this.src='assets/images/fraud-detection.jpg';">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Fraud Detection Model</h3>
+                                        <p>Neural network model for identifying fraudulent transactions using SMOTE for class balancing and advanced ML techniques.</p>
+                                        <div class="project-tech">
+                                            <span>Python</span>
+                                            <span>Keras</span>
+                                            <span>TensorFlow</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/mkuangdotcom/Fraud_Detection" target="_blank" rel="noopener noreferrer" class="github-btn">
+                                                <i class="fab fa-github"></i> GitHub
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Full Stack Projects Section -->
+                    <div class="category-section" id="full-stack-projects">
+                        <div class="category-header">
+                            <h2>Full Stack</h2>
+                        </div>
+                        <div class="category-projects">
+                            <!-- Project 6: CropMaster -->
+                            <div class="project-item animate-reveal" data-category="full-stack">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img 
+                                            src="assets/images/cropmaster.webp" 
+                                            alt="CropMaster Project"
+                                            width="600" 
+                                            height="400" 
+                                            loading="lazy"
+                                            onError="this.onerror=null; this.src='assets/images/cropmaster.jpg';">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>CropMaster</h3>
+                                        <p>Satellite-powered farm intelligence platform that uses AI to analyze crop data and optimize agricultural yields.</p>
+                                        <div class="project-tech">
+                                            <span>Flutter</span>
+                                            <span>Dart</span>
+                                            <span>AI/ML</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/NickolasChen04/cropmaster" target="_blank" rel="noopener noreferrer" class="github-btn">
+                                                <i class="fab fa-github"></i> GitHub
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Project 7: MEX Assistant -->
+                            <div class="project-item animate-reveal" data-category="full-stack">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img 
+                                            src="assets/images/mex-assistant.webp" 
+                                            alt="MEX Assistant Project"
+                                            width="600" 
+                                            height="400" 
+                                            loading="lazy"
+                                            onError="this.onerror=null; this.src='assets/images/mex-assistant.jpg';">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>MEX Assistant</h3>
+                                        <p>AI-powered platform built with React and Django that delivers merchant business insights via interactive dashboards and chatbot.</p>
+                                        <div class="project-tech">
+                                            <span>React.js</span>
+                                            <span>Django</span>
+                                            <span>Tailwind CSS</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/lingyuqian0301/LLF" target="_blank" rel="noopener noreferrer" class="github-btn">
+                                                <i class="fab fa-github"></i> GitHub
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Modal -->
+    <div class="project-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modal-img" src="" alt="Project image">
+                </div>
+                <div class="modal-details">
+                    <h3>Project Overview</h3>
+                    <p id="modal-description"></p>
+                    <h3>Features</h3>
+                    <ul id="modal-features"></ul>
+                    <h3>Technologies</h3>
+                    <div id="modal-tech" class="modal-tech-tags"></div>
+                    <div class="modal-links">
+                        <a id="modal-repo" href="#" target="_blank" rel="noopener noreferrer" class="btn primary-btn">View Repository</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">MK<span>.</span></a>
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/mkuangdotcom" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ming-kuang-foo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                    <a href="mailto:mk.foo123@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ming Kuang. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/projects.js" defer></script>
+</body>
+</html>
