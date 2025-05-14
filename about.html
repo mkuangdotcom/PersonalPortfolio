@@ -61,6 +61,16 @@
     
     <!-- Add optimized animation CSS -->
     <link rel="stylesheet" href="css/animation-optimize.css">
+    
+    <!-- Custom style to remove connector lines -->
+    <style>
+        .no-connector-lines::before,
+        .no-connector-lines::after,
+        .no-connector-lines .experience-card::before,
+        .no-connector-lines .experience-card::after {
+            display: none !important;
+        }
+    </style>
 </head>
 <body class="about-page">
     <header>
@@ -163,7 +173,7 @@
                     
                     <div class="timeline-right">
                         <h2 class="section-title">Professional <span>Experience</span></h2>
-                        <div class="experience-timeline">
+                        <div class="experience-timeline no-connector-lines">
                             <div class="experience-card animate-reveal" style="margin-top: 5.2rem;">
                                 <a href="#" target="_blank" rel="noopener noreferrer" class="company-logo-container">
                                     <img src="assets/images/undisclosed.webp" alt="Undisclosed Company Logo" class="company-logo">
