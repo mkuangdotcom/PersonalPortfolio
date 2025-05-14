@@ -10,14 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Project modal functionality
     setupProjectModals();
     
-    // Add staggered animation to project items
-    animateProjectItems();
-    
-    // Initialize hover effects
-    initHoverEffects();
-    
-    // Add scroll-triggered animations
-    initScrollEffects();
+    // Pre-render all project items instead of animating them
+    preRenderProjects();
 });
 
 /**
@@ -272,14 +266,16 @@ function setupProjectModals() {
 }
 
 /**
- * Adds staggered animation to project items
+ * Pre-renders all project items to prevent animation layout shifts
  */
-function animateProjectItems() {
+function preRenderProjects() {
     const projectItems = document.querySelectorAll('.project-item');
     
-    projectItems.forEach((item, index) => {
-        // Add staggered animation delay
-        item.style.animationDelay = `${index * 0.1}s`;
+    projectItems.forEach((item) => {
+        // Remove animation delays and make content visible immediately
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
+        item.style.animationDelay = '0s';
     });
 }
 

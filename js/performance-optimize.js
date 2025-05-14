@@ -75,20 +75,53 @@ function deferNonCriticalJS() {
 }
 
 /**
- * Optimize animations to reduce repaints and improve performance
+ * Optimize animations to reduce repaints and layout shifts
  */
 function optimizeAnimations() {
-    // Get all animated elements
+    // Mark home page for selective animations
+    if (window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
+        document.body.classList.add('home-page');
+    }
+    
+    // Optimize animations with IntersectionObserver to only animate when visible
     const animatedElements = document.querySelectorAll('.animate-reveal');
     
-    // Use requestAnimationFrame for smoother animations
     if (animatedElements.length > 0) {
-        window.requestAnimationFrame(() => {
-            animatedElements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.style.visibility = 'visible';
-                }, index * 100);
+        // First, prevent layout shifts by ensuring content has dimensions
+        animatedElements.forEach(el => {
+            // Pre-calculate and set placeholder heights for large elements
+            if (el.classList.contains('project-card') || 
+                el.classList.contains('skills-container') ||
+                el.tagName === 'SECTION') {
+                el.style.minHeight = '200px';
+            }
+        });
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Only apply animation when element is in viewport
+                    entry.target.classList.add('animate-visible');
+                    observer.unobserve(entry.target);
+                }
             });
+        }, {
+            threshold: 0.1,
+            rootMargin: '50px'
+        });
+        
+        // Only observe animations on homepage or use reduced set on other pages
+        animatedElements.forEach(el => {
+            // Don't animate elements that might cause layout shifts on non-home pages
+            if (document.body.classList.contains('home-page') || 
+                !el.classList.contains('project-card') && 
+                !el.classList.contains('skills-container')) {
+                observer.observe(el);
+            } else {
+                // Just make visible without animation on non-homepage
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }
         });
     }
 }

@@ -1,0 +1,51 @@
+/* 
+ * Animation optimization CSS
+ * Selectively applies animations only to the home page
+ * and uses more performant transforms
+ */
+
+/* Only apply animations to the home page */
+body:not(.home-page) .animate-reveal,
+body:not(.home-page) .animate-timeline,
+body:not(.home-page) .animate-skill,
+body:not(.home-page) .skill-tag {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
+    will-change: auto !important;
+    transition: none !important;
+}
+
+/* Prevent layout shift by setting initial dimensions before animations */
+.animate-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    min-height: 1px; /* Prevent content collapse during animation */
+    animation-fill-mode: forwards;
+}
+
+.home-page .animate-reveal {
+    animation: reveal 0.8s ease forwards;
+    will-change: transform, opacity;
+}
+
+/* Optimized animation with hardware acceleration and reduced layout shifts */
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0); /* Use translate3d for hardware acceleration */
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Adjust animation delays for devices that prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .animate-reveal {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+}

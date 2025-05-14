@@ -1,48 +1,24 @@
 /**
  * About Page JavaScript
  * Contains functionality specific to the about page
+ * Optimized for performance by reducing animations
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Animate stats counter
-    animateStatCounters();
+    // Pre-apply all animation classes immediately to prevent layout shifts
+    document.querySelectorAll('.animate-reveal, .timeline-item, .education-card, .experience-card').forEach(el => {
+        el.classList.add('animate-timeline', 'animate-card');
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+    });
     
-    // Animate timeline items when they enter the viewport
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    if (timelineItems.length > 0) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-timeline');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-        
-        timelineItems.forEach(item => {
-            observer.observe(item);
-            
-            // Alternate animation direction
-            if (item.offsetLeft === 0) {
-                item.classList.add('from-left');
-            } else {
-                item.classList.add('from-right');
-            }
-        });
-    }
+    // Apply static styling to the page content instead of animations
+    document.body.classList.add('content-loaded');
     
-    // Animate education timeline container
+    // Mark education timeline as already animated
     const educationTimeline = document.querySelector('.education-timeline');
     if (educationTimeline) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-timeline');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-        observer.observe(educationTimeline);
+        educationTimeline.classList.add('animate-timeline');
     }
     
     // Animate education cards

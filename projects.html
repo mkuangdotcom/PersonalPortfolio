@@ -7,8 +7,27 @@
     <title>Projects | Ming Kuang</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/projects.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Optimized Font Awesome - only load what we need -->
+    <style>
+        /* Custom Font Awesome subset for better performance */
+        .fab.fa-github:before { content: "\f09b"; }
+        .fab.fa-linkedin:before { content: "\f08c"; }
+        .fas.fa-envelope:before { content: "\f0e0"; }
+        .fa, .fab, .fas {
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+        }
+        .fab { font-family: "Font Awesome 5 Brands"; }
+        .fa-lg { font-size: 1.33333em; line-height: 0.75em; vertical-align: -.0667em; }
+        .fa-2x { font-size: 2em; }
+    </style>
     <!-- Google Fonts - Optimized -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,8 +38,16 @@
     </noscript>
     <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:;">
+    
+    <!-- Fix H1UserAgentFontSizeInSection warning -->
+    <style>
+        h1 { font-size: 2em; }
+    </style>
+    
+    <!-- Add optimized animation CSS -->
+    <link rel="stylesheet" href="css/animation-optimize.css">
 </head>
-<body>
+<body class="projects-page">
     <header>
         <div class="container">
             <nav class="navbar">
@@ -251,7 +278,8 @@
         </div>
     </footer>
 
-    <script src="js/main.js" defer></script>
-    <script src="js/projects.js" defer></script>
+    <script src="js/main.min.js" defer></script>
+    <script src="js/projects.min.js" defer></script>
+    <script src="js/bfcache-fix.min.js" defer></script>
 </body>
 </html>
