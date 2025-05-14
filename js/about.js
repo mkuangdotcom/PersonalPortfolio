@@ -1,21 +1,19 @@
 /**
  * About Page JavaScript
- * Contains functionality specific to the about page
- * Optimized for performance by reducing animations
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Pre-apply all animation classes immediately to prevent layout shifts
+    // Pre-apply all animation classes
     document.querySelectorAll('.animate-reveal, .timeline-item, .education-card, .experience-card').forEach(el => {
         el.classList.add('animate-timeline', 'animate-card');
         el.style.opacity = '1';
         el.style.transform = 'translateY(0)';
     });
     
-    // Apply static styling to the page content instead of animations
+    // Apply static styling
     document.body.classList.add('content-loaded');
     
-    // Mark education timeline as already animated
+    // Mark education timeline
     const educationTimeline = document.querySelector('.education-timeline');
     if (educationTimeline) {
         educationTimeline.classList.add('animate-timeline');
@@ -40,16 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Add timeline dots for education cards
+    // Add timeline dots
     const educationCardsForDots = document.querySelectorAll('.education-card');
     educationCardsForDots.forEach((card, index) => {
-        // Create timeline dot for each education card
         const timelineDot = document.createElement('div');
         timelineDot.className = 'timeline-dot';
         card.appendChild(timelineDot);
     });
     
-    // Animate experience timeline container
+    // Animate experience timeline
     const experienceTimeline = document.querySelector('.experience-timeline');
     if (experienceTimeline) {
         const observer = new IntersectionObserver((entries) => {
@@ -80,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         experienceCards.forEach(card => {
             observer.observe(card);
             
-            // Add hover animation handler
             card.addEventListener('mouseenter', function() {
                 const bgImage = this.querySelector('.experience-bg');
                 if (bgImage) {
@@ -117,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Skills progress bars animation
+    // Skills progress bars
     const skillBars = document.querySelectorAll('.skill-progress');
     if (skillBars.length > 0) {
         const observer = new IntersectionObserver((entries) => {
@@ -137,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Animates the stat number counters with a counting effect
+ * Animate stat counters
  */
 function animateStatCounters() {
     const counters = document.querySelectorAll('.stat-number');
@@ -175,7 +171,7 @@ function animateStatCounters() {
     });
 }
 
-// Add custom styles for animations
+// Add styles for animations
 document.head.insertAdjacentHTML('beforeend', `
 <style>
 .timeline-item {
@@ -209,13 +205,11 @@ document.head.insertAdjacentHTML('beforeend', `
 
 .education-timeline::before, 
 .experience-timeline::before {
-    /* Removing the vertical timeline line */
     display: none;
 }
 
 .education-timeline.animate-timeline::before, 
 .experience-timeline.animate-timeline::before {
-    /* Removed animation for timeline line */
     display: none;
 }
 
@@ -300,7 +294,7 @@ document.head.insertAdjacentHTML('beforeend', `
 </style>
 `);
 
-// Parallax effect on about hero image
+// Parallax effect
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY;
     const aboutImage = document.querySelector('.about-hero-image');

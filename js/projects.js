@@ -1,6 +1,5 @@
 /**
  * Projects Page JavaScript
- * Contains functionality specific to the projects page
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Project modal functionality
     setupProjectModals();
     
-    // Pre-render all project items instead of animating them
     preRenderProjects();
 });
 
@@ -77,7 +75,7 @@ const projectsData = {
 };
 
 /**
- * Sets up the project filtering functionality
+ * Sets up project filtering
  */
 function setupProjectFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -139,10 +137,7 @@ function setupProjectFilters() {
 }
 
 /**
- * Sets up the project modal functionality
- * Note: Since we're now using direct GitHub links instead of detail buttons, 
- * we'll keep this function for potential future use but modify it to work with 
- * clicking on project cards instead.
+ * Sets up project modal functionality
  */
 function setupProjectModals() {
     const projectItems = document.querySelectorAll('.project-item');
@@ -266,7 +261,7 @@ function setupProjectModals() {
 }
 
 /**
- * Pre-renders all project items to prevent animation layout shifts
+ * Pre-renders projects
  */
 function preRenderProjects() {
     const projectItems = document.querySelectorAll('.project-item');
@@ -280,7 +275,7 @@ function preRenderProjects() {
 }
 
 /**
- * Initializes hover effects for projects
+ * Initializes hover effects
  */
 function initHoverEffects() {
     const projectItems = document.querySelectorAll('.project-item');
@@ -303,7 +298,7 @@ function initHoverEffects() {
 }
 
 /**
- * Initializes scroll-triggered animations
+ * Initializes scroll animations
  */
 function initScrollEffects() {
     // Hero section parallax effect
@@ -336,7 +331,7 @@ function initScrollEffects() {
     }
 }
 
-// Add custom styles for advanced animations
+// Add custom styles
 document.head.insertAdjacentHTML('beforeend', `
 <style>
 /* Tag hover animation */
@@ -405,7 +400,7 @@ document.head.insertAdjacentHTML('beforeend', `
 </style>
 `);
 
-// Enable 3D tilt effect if browser supports it
+// Enable 3D tilt effect
 if (window.DeviceOrientationEvent) {
     const projectItems = document.querySelectorAll('.project-item');
     
