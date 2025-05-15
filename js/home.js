@@ -4,13 +4,13 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Typing effect for hero section
+    // Typing effect
     const typingElement = document.querySelector('.hero h2');
     if (typingElement) {
         const roles = ['Software Engineer', 'Machine Learning Specialist', 'Web Developer', 'Flutter Developer'];
         let currentRoleIndex = 0;
         
-        // Initial text is already in HTML, start with the next role
+        // Start with next role
         currentRoleIndex = 1;
         
         setInterval(() => {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Fix for skills animation
+    // Fix skills animation
     const skillTags = document.querySelectorAll('.skill-tag');
     if (skillTags.length > 0) {
         // Ensure animations start cleanly by explicitly setting initial state
@@ -74,11 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/**
- * Creates a typing animation effect
- * @param {HTMLElement} element - Element to animate
- * @param {String} text - Text to type
- */
+// Typing animation
 function typingAnimation(element, text) {
     // Store original text
     const originalText = element.textContent;
@@ -105,11 +101,7 @@ function typingAnimation(element, text) {
     }, 50);
 }
 
-/**
- * Types text character by character
- * @param {HTMLElement} element - Element to type text into
- * @param {String} text - Text to type
- */
+// Type text character by character
 function typeText(element, text) {
     let i = 0;
     element.textContent = '';
@@ -124,7 +116,7 @@ function typeText(element, text) {
     }, 100);
 }
 
-// Add styles for skill animations
+// Add skill animation styles
 document.head.insertAdjacentHTML('beforeend', `
 <style>
 .animate-skill {
@@ -157,7 +149,7 @@ document.head.insertAdjacentHTML('beforeend', `
 </style>
 `);
 
-// Parallax effect on hero section
+// Parallax effect on scroll
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY;
     const heroImage = document.querySelector('.hero-image');

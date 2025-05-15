@@ -1,6 +1,4 @@
-/**
- * About Page JavaScript
- */
+// About page JS
 
 document.addEventListener('DOMContentLoaded', () => {
     // Pre-apply all animation classes
@@ -132,9 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/**
- * Animate stat counters
- */
+// Stat counter animation
 function animateStatCounters() {
     const counters = document.querySelectorAll('.stat-number');
     

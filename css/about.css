@@ -162,6 +162,7 @@ About Page Specific Styles
     transform: translateX(-50%);
     opacity: 0.3;
     border-radius: 2px;
+    display: none !important;
 }
 
 .experience-card {

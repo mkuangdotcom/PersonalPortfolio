@@ -1,20 +1,9 @@
-/**
- * Projects Page JavaScript
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Project filtering functionality
     setupProjectFilters();
-    
-    // Project modal functionality
     setupProjectModals();
-    
     preRenderProjects();
 });
 
-/**
- * Project details data
- */
 const projectsData = {
     attendease: {
         title: "AttendEase",
@@ -74,9 +63,6 @@ const projectsData = {
     }
 };
 
-/**
- * Sets up project filtering
- */
 function setupProjectFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const categorySections = document.querySelectorAll('.category-section');
@@ -85,36 +71,28 @@ function setupProjectFilters() {
     
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Remove active class from all buttons
             filterButtons.forEach(btn => btn.classList.remove('active'));
             
-            // Add active class to clicked button
             this.classList.add('active');
             
-            // Get filter value
             const filterValue = this.getAttribute('data-filter');
             
-            // Handle showing/hiding sections based on filter
             if (filterValue === 'all') {
-                // Show all category sections
                 categorySections.forEach(section => {
                     section.style.display = 'block';
                     
-                    // Animate each section
                     setTimeout(() => {
                         section.style.opacity = 1;
                         section.style.transform = 'translateY(0)';
                     }, 100);
                 });
             } else {
-                // Show only the selected category section, hide others
                 categorySections.forEach(section => {
                     const sectionId = section.id;
                     
                     if (sectionId === `${filterValue}-projects`) {
                         section.style.display = 'block';
                         
-                        // Animate the section
                         setTimeout(() => {
                             section.style.opacity = 1;
                             section.style.transform = 'translateY(0)';
@@ -125,7 +103,6 @@ function setupProjectFilters() {
                 });
             }
             
-            // Smooth scroll to the first visible section
             setTimeout(() => {
                 const firstVisibleSection = document.querySelector('.category-section[style="display: block;"]');
                 if (firstVisibleSection) {
@@ -136,9 +113,6 @@ function setupProjectFilters() {
     });
 }
 
-/**
- * Sets up project modal functionality
- */
 function setupProjectModals() {
     const projectItems = document.querySelectorAll('.project-item');
     const modal = document.querySelector('.project-modal');
@@ -153,22 +127,18 @@ function setupProjectModals() {
     const modalRepo = document.getElementById('modal-repo');
     const closeModal = document.querySelector('.close-modal');
     
-    // Open modal when clicking on project image
     projectItems.forEach(item => {
         const projectImage = item.querySelector('.project-image');
-        if (!projectImage) return; // Skip if no image found
+        if (!projectImage) return;
         
         const projectTitle = item.querySelector('h3');
-        if (!projectTitle) return; // Skip if no title found
+        if (!projectTitle) return;
         
         const projectId = projectTitle.textContent.toLowerCase().replace(/\s+/g, '');
         
-        // Use more efficient event delegation by attaching a single event listener
         projectImage.addEventListener('click', function(e) {
-            // Prevent default behavior if any
             e.preventDefault();
             
-            // Find project in projectsData by matching the title - use a more direct approach
             let projectKey = null;
             for (const key in projectsData) {
                 if (projectsData[key].title.toLowerCase() === projectId.toLowerCase() || 
@@ -181,14 +151,11 @@ function setupProjectModals() {
             if (projectKey && projectsData[projectKey]) {
                 const project = projectsData[projectKey];
                 
-                // Optimize DOM operations by doing them in batches
-                // Populate modal with project data
                 modalTitle.textContent = project.title;
                 modalImg.src = project.img;
                 modalImg.alt = project.title;
                 modalDescription.textContent = project.description;
                 
-                // Create document fragment for better performance
                 const featuresFragment = document.createDocumentFragment();
                 project.features.forEach(feature => {
                     const li = document.createElement('li');
@@ -196,11 +163,9 @@ function setupProjectModals() {
                     featuresFragment.appendChild(li);
                 });
                 
-                // Clear and append all at once
                 modalFeatures.innerHTML = '';
                 modalFeatures.appendChild(featuresFragment);
                 
-                // Same for tech tags
                 const techFragment = document.createDocumentFragment();
                 project.technologies.forEach(tech => {
                     const span = document.createElement('span');
@@ -211,15 +176,12 @@ function setupProjectModals() {
                 modalTech.innerHTML = '';
                 modalTech.appendChild(techFragment);
                 
-                // Set repository link
                 modalRepo.href = project.repoUrl;
                 
-                // Show modal - use RAF for smoother animation
                 requestAnimationFrame(() => {
                     modal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                    document.body.style.overflow = 'hidden';
                     
-                    // Animate modal opening on next frame
                     requestAnimationFrame(() => {
                         modal.querySelector('.modal-content').classList.add('active');
                     });
@@ -228,55 +190,45 @@ function setupProjectModals() {
         });
     });
     
-    // Close modal when clicking the close button
     closeModal.addEventListener('click', () => {
         modal.querySelector('.modal-content').classList.remove('active');
         setTimeout(() => {
             modal.style.display = 'none';
-            document.body.style.overflow = ''; // Re-enable scrolling
+            document.body.style.overflow = '';
         }, 300);
     });
     
-    // Close modal when clicking outside the content
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
             modal.querySelector('.modal-content').classList.remove('active');
             setTimeout(() => {
                 modal.style.display = 'none';
-                document.body.style.overflow = ''; // Re-enable scrolling
+                document.body.style.overflow = '';
             }, 300);
         }
     });
     
-    // Close modal with escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && modal.style.display === 'flex') {
             modal.querySelector('.modal-content').classList.remove('active');
             setTimeout(() => {
                 modal.style.display = 'none';
-                document.body.style.overflow = ''; // Re-enable scrolling
+                document.body.style.overflow = '';
             }, 300);
         }
     });
 }
 
-/**
- * Pre-renders projects
- */
 function preRenderProjects() {
     const projectItems = document.querySelectorAll('.project-item');
     
     projectItems.forEach((item) => {
-        // Remove animation delays and make content visible immediately
         item.style.opacity = '1';
         item.style.transform = 'translateY(0)';
         item.style.animationDelay = '0s';
     });
 }
 
-/**
- * Initializes hover effects
- */
 function initHoverEffects() {
     const projectItems = document.querySelectorAll('.project-item');
     
@@ -297,11 +249,7 @@ function initHoverEffects() {
     });
 }
 
-/**
- * Initializes scroll animations
- */
 function initScrollEffects() {
-    // Hero section parallax effect
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
         const heroContent = document.querySelector('.projects-hero-content');
@@ -312,7 +260,6 @@ function initScrollEffects() {
         }
     });
     
-    // Animate section titles on scroll
     const sectionTitles = document.querySelectorAll('.section-title');
     
     if (sectionTitles.length > 0) {
@@ -331,16 +278,13 @@ function initScrollEffects() {
     }
 }
 
-// Add custom styles
 document.head.insertAdjacentHTML('beforeend', `
 <style>
-/* Tag hover animation */
 .tag-hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-sm);
 }
 
-/* Title animation */
 .title-animate {
     position: relative;
 }
@@ -362,7 +306,6 @@ document.head.insertAdjacentHTML('beforeend', `
     }
 }
 
-/* 3D tilt effect on project cards */
 .project-item {
     transform-style: preserve-3d;
     perspective: 1000px;
@@ -377,7 +320,6 @@ document.head.insertAdjacentHTML('beforeend', `
     backface-visibility: hidden;
 }
 
-/* Animated cursor effect for interactive elements */
 .filter-btn {
     position: relative;
     overflow: hidden;
@@ -400,7 +342,6 @@ document.head.insertAdjacentHTML('beforeend', `
 </style>
 `);
 
-// Enable 3D tilt effect
 if (window.DeviceOrientationEvent) {
     const projectItems = document.querySelectorAll('.project-item');
     

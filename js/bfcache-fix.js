@@ -3,7 +3,7 @@
  */
 window.addEventListener('pageshow', (event) => {
   if (event.persisted) {
-    // Page restored from cache
+    // Page from cache - reload
     window.location.reload();
   }
 });
