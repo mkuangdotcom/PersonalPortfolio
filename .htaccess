@@ -1,32 +1,31 @@
-# Cache Control Configuration
-# Set longer cache times for static resources to improve performance
+# Cache settings
 
-# Cache all images for 1 year
+# Images - 1 year
 <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
   Header set Cache-Control "max-age=31536000, public, immutable"
 </FilesMatch>
 
-# Cache CSS and JavaScript files for 1 month
+# CSS/JS - 1 month
 <FilesMatch "\.(css|js)$">
   Header set Cache-Control "max-age=2592000, public"
 </FilesMatch>
 
-# Cache web fonts for 1 year
+# Fonts - 1 year
 <FilesMatch "\.(woff|woff2|ttf|otf|eot)$">
   Header set Cache-Control "max-age=31536000, public, immutable"
 </FilesMatch>
 
-# Don't cache HTML files
+# HTML - no cache
 <FilesMatch "\.(html|php)$">
   Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
 </FilesMatch>
 
-# Enable gzip compression
+# Enable gzip
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/x-javascript application/json
 </IfModule>
 
-# Set security headers
+# Security headers
 Header always set X-Content-Type-Options "nosniff"
 Header always set X-XSS-Protection "1; mode=block"
 Header always set X-Frame-Options "SAMEORIGIN"

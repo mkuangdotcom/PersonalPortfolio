@@ -1,9 +1,7 @@
-/**
- * Timeline Fix JavaScript
- */
+// Timeline fixes
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Get the timeline center divider
+    // Get timeline divider
     const timelineDivider = document.querySelector('.timeline-center-divider');
     
     if (timelineDivider) {
